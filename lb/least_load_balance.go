@@ -46,6 +46,7 @@ func (p *LeastLoadBalance) DoBalance(ip ...string) (inst *Instance, err error) {
 	// 如果ip不为空，则创建新的inst也补充进来
 
 	inst = (*pq)[0]
+	(*pq)[0].Connections++
 	return inst, nil
 }
 
